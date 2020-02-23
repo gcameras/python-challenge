@@ -30,7 +30,6 @@ with open(csvpath,newline='') as csvfile:
 
     #Initialize variables
     profit_loss = 0
-    #previous_profit = float(row[1]) #error: NameError: name 'row' is not defined
     previous_profit = 0
     
     for row in csvreader:
@@ -53,7 +52,7 @@ with open(csvpath,newline='') as csvfile:
     #Calculate total MoM change and average change
     monthly_change.pop(0)
     total_change = int(sum(monthly_change))
-    #average_change = round(total_change / (len(date) - 1))
+    average_change = round(total_change / (len(date) - 1),2)  
 
     #The greatest increase in profits (date and amount) over the entire period
     greatest_increase_profits = int(max(monthly_change))
@@ -62,9 +61,7 @@ with open(csvpath,newline='') as csvfile:
     #The greatest decrease in losses (date and amount) over the entire period
     greatest_decrease_profits = int(min(monthly_change))
     decrease_date = date[monthly_change.index(greatest_decrease_profits)+1]    
-
-    average_change = round(total_change / (len(date) - 1),2)        
-
+        
 print("Financial Analysis")
 print("----------------------------------------------------------")
 print(f"Total Months: {total_months}") 
