@@ -15,7 +15,7 @@ import csv
 # Set path for file
 csvpath = os.path.join("Resources", "election_data.csv")
 
-# Open the CSV
+# Open the CSV reader and skip header
 with open(csvpath,newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvreader)
